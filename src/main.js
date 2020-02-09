@@ -11,6 +11,11 @@ import './assets/iconfont.css'
 // 解决移动端1px边框显示问题
 import './assets/border.css'
 
+// 轮播图插件
+import VueAwesomeSwiper from 'vue-awesome-swiper'
+import 'swiper/dist/css/swiper.css'
+Vue.use(VueAwesomeSwiper)
+
 Vue.config.productionTip = false
 
 // 解决移动端点击300ms延迟问题
