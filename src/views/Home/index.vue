@@ -41,15 +41,19 @@
       </swiper-slide>
     </swiper>
 
+    <!-- 热销推荐模块 -->
+    <home-recommend></home-recommend>
   </div>
 </template>
 
 <script>
 import HeaderComponent from '../../components/Header'
+import HomeRecommend from './components/HomeRecommend.vue'
 export default {
   name: 'home',
   components: {
-    HeaderComponent
+    HeaderComponent,
+    HomeRecommend
   },
   data () {
     return {
