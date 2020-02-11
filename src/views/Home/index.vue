@@ -1,7 +1,9 @@
 <template>
   <div class="home">
     <!-- 主页头部 -->
-    <header-component></header-component>
+    <div ref="homeHeader" class="fixed">
+      <home-header ></home-header>
+    </div>
     <!-- 轮播图部分 -->
     <swiper :options="swiperOption" ref="mySwiper" @someSwiperEvent="someSwiperEvent">
       <!-- slides -->
@@ -14,9 +16,7 @@
       <swiper-slide>
         <img src="https://imgs.qunarzz.com/vs_ceph_vs_tts/4bb8a0a2-22e0-45f4-bb75-7fd4c2cf9cc2.jpg_r_390x260x90_755ac99a.jpg" alt="">
       </swiper-slide>
-    <!-- Optional controls -->
     <div class="swiper-pagination"  slot="pagination"></div>
-    <!-- <div class="swiper-scrollbar"   slot="scrollbar"></div> -->
     </swiper>
 
     <!-- nav导航模块 -->
@@ -43,17 +43,22 @@
 
     <!-- 热销推荐模块 -->
     <home-recommend></home-recommend>
+
+    <!-- 周末游组件 -->
+    <home-weekend></home-weekend>
   </div>
 </template>
 
 <script>
-import HeaderComponent from '../../components/Header'
-import HomeRecommend from './components/HomeRecommend.vue'
+import HomeHeader from '../../components/Header'
+import HomeRecommend from './components/HomeRecommend'
+import HomeWeekend from './components/Weekend'
 export default {
   name: 'home',
   components: {
-    HeaderComponent,
-    HomeRecommend
+    HomeHeader,
+    HomeRecommend,
+    HomeWeekend
   },
   data () {
     return {
@@ -148,6 +153,9 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+.home {
+  padding-top: .86rem;
+}
 .swiper-slide {
   img {
     width: 100vw;
@@ -193,5 +201,13 @@ export default {
       text-align: center;
     }
   }
+}
+
+.fixed {
+  position: fixed;
+  width: 100%;
+  height: .86rem;
+  z-index: 999;
+  top: 0;
 }
 </style>

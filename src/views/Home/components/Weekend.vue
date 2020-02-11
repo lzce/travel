@@ -1,6 +1,6 @@
 <template>
   <div class="home-recommend">
-    <div class="recom-title">热销推荐</div>
+    <div class="recom-title">周末游</div>
     <ul class="recommend">
       <li v-for="item in recommendList" :key="item.id" class="recom-item border-bottom">
         <div class="recom-left">
@@ -18,7 +18,7 @@
 
 <script>
 export default {
-  name: 'HomeRecommend',
+  name: 'HomeWeekend',
   data () {
     return {
       recommendList: [
@@ -48,6 +48,11 @@ export default {
         }
       ]
     }
+  },
+  mounted () {
+  },
+
+  methods: {
   }
 }
 </script>
@@ -67,17 +72,19 @@ export default {
   .recommend {
     .recom-item {
       display: flex;
+      flex-direction: column;
       padding: 0 .1rem;
       margin-bottom: .2rem;
       padding-bottom: .2rem;
       .recom-left {
-        margin-right: .2rem;
+        // margin-right: .2rem;
         img {
-          width: 2.2rem;
+          width: 100%;
+          height: 2rem;
         }
       }
       .recom-right {
-        // padding-top: .1rem;
+        padding-top: .1rem;
         p:nth-child(1) {
           font-size: .32rem;
           width: 100%;
