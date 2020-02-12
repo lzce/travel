@@ -3,6 +3,9 @@ import App from './App.vue'
 import router from './router'
 import store from './store'
 import FastClick from 'fastclick'
+import axios from 'axios'
+
+import './mock'
 
 // 引入初始化样式
 import './assets/reset.css'
@@ -15,6 +18,9 @@ import './assets/border.css'
 import VueAwesomeSwiper from 'vue-awesome-swiper'
 import 'swiper/dist/css/swiper.css'
 Vue.use(VueAwesomeSwiper)
+
+// 全局挂载axios
+Vue.prototype.$axios = axios
 
 Vue.config.productionTip = false
 
