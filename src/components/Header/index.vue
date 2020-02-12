@@ -7,10 +7,12 @@
       <span class="iconfont icon-49"></span>
       输入城市/景点/游玩主题
       </div>
-    <div class="header-right">
-      <em>城市</em>
-      <span class="iconfont icon-ico_arrows_unfold"></span>
-    </div>
+    <router-link to="/city">
+      <div class="header-right">
+        <em>上海</em>
+        <span class="iconfont icon-ico_arrows_unfold"></span>
+      </div>
+    </router-link>
   </div>
 </template>
 
@@ -39,6 +41,7 @@ export default {
     width: 1.24rem;
     line-height: .86rem;
     text-align: center;
+    color: #fff;
     span {
       font-size: .24rem;
       display: inline-block;

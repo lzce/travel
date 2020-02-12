@@ -2,7 +2,7 @@
   <div class="home">
     <!-- 主页头部 -->
     <div ref="homeHeader" class="fixed">
-      <home-header ></home-header>
+      <home-header></home-header>
     </div>
     <!-- 轮播图部分 -->
     <swiper :options="swiperOption" ref="mySwiper" >
@@ -92,9 +92,11 @@ export default {
       const pages = Math.ceil(this.navList.length / 10)
       return pages
     },
+    // 第一页
     navOne () {
       return this.navList.slice(0, 10)
     },
+    // 第二页
     navTwo () {
       return this.navList.slice(10, 20)
     }
