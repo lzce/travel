@@ -72,7 +72,7 @@ export default {
   methods: {
     // 获取轮播图数据
     async getSwiperList () {
-      const res = await this.$axios.get('/api/swiperList')
+      const res = await this.$axios.post('/api/swiperList')
       this.swiperList = res.data.swiperList
     },
     // 获取 nav数据

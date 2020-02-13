@@ -1,7 +1,7 @@
 // 引入mockjs
 const Mock = require('mockjs')
 // 使用mockjs模拟数据
-Mock.mock('/api/swiperList', (req, res) => {
+Mock.mock('/api/swiperList', 'post', (req, res) => {
   return {
     swiperList: [
       {
