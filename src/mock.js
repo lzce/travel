@@ -1,6 +1,6 @@
 // 引入mockjs
 const Mock = require('mockjs')
-// 使用mockjs模拟数据
+// 主页轮播图
 Mock.mock('/api/swiperList', 'post', (req, res) => {
   return {
     swiperList: [
@@ -21,6 +21,7 @@ Mock.mock('/api/swiperList', 'post', (req, res) => {
   }
 })
 
+// 主页 nav 数据
 Mock.mock('/api/navList', () => {
   return {
     navList: [
@@ -76,3 +77,36 @@ Mock.mock('/api/navList', () => {
     ]
   }
 })
+
+// 城市列表页热门城市数据
+Mock.mock('/api/hotCities', 'get', () => {
+  return {
+    'hotCities': [{
+      'id': 1,
+      'spell': 'beijing',
+      'name': '北京'
+    }, {
+      'id': 3,
+      'spell': 'shanghai',
+      'name': '上海'
+    }, {
+      'id': 47,
+      'spell': 'xian',
+      'name': '西安'
+    }, {
+      'id': 239,
+      'spell': 'sanya',
+      'name': '三亚'
+    }, {
+      'id': 188,
+      'spell': 'lijiang',
+      'name': '丽江'
+    }, {
+      'id': 125,
+      'spell': 'guilin',
+      'name': '桂林'
+    }]
+  }
+})
+
+// 城市列表数据

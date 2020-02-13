@@ -10,45 +10,15 @@
       <div class="hot-city">
         <div class="cur-title">热门城市</div>
         <ul class="hot-item">
-          <li><a href="#">上海</a></li>
-          <li><a href="#">上海</a></li>
-          <li><a href="#">上海</a></li>
-          <li><a href="#">上海</a></li>
-          <li><a href="#">上海</a></li>
-          <li><a href="#">上海</a></li>
-          <li><a href="#">上海</a></li>
-          <li><a href="#">上海</a></li>
+          <li v-for="item of hotCity" :key="item.id"><a href="#">{{ item.name }}</a></li>
         </ul>
       </div>
       <!-- 城市列表 -->
       <div class="cate-city">
-        <div class="cate-item">
-          <div class="cur-title">A</div>
+        <div class="cate-item" v-for="(item, key) of city" :key="key">
+          <div class="cur-title">{{ key }}</div>
           <ul class="item-ul">
-            <li>阿拉尔</li>
-            <li>阿拉尔</li>
-            <li>阿拉尔</li>
-            <li>阿拉尔</li>
-          </ul>
-        </div>
-
-        <div class="cate-item">
-          <div class="cur-title">A</div>
-          <ul class="item-ul">
-            <li>阿拉尔</li>
-            <li>阿拉尔</li>
-            <li>阿拉尔</li>
-            <li>阿拉尔</li>
-          </ul>
-        </div>
-
-        <div class="cate-item">
-          <div class="cur-title">A</div>
-          <ul class="item-ul">
-            <li>阿拉尔</li>
-            <li>阿拉尔</li>
-            <li>阿拉尔</li>
-            <li>阿拉尔</li>
+            <li v-for="c of item" :key="c.id">{{ c.name }}</li>
           </ul>
         </div>
       </div>
@@ -60,6 +30,10 @@
 import BScroll from 'better-scroll'
 export default {
   name: 'CityList',
+  props: {
+    hotCity: Array,
+    city: Object
+  },
   mounted () {
     this.scroll = new BScroll(this.$refs.scrollList)
   }

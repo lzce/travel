@@ -1,22 +1,20 @@
 <template>
   <div class="letter">
-    <div class="item">A</div>
-    <div class="item">A</div>
-    <div class="item">A</div>
-    <div class="item">A</div>
-    <div class="item">A</div>
-    <div class="item">A</div>
-    <div class="item">A</div>
+    <div class="item" v-for="(item, key) of city" :key="key">{{ key }}</div>
   </div>
 </template>
 
 <script>
 export default {
-  name: 'CityLetter'
+  name: 'CityLetter',
+  props: {
+    city: Object
+  }
 }
 </script>
 
 <style lang="scss" scoped>
+@import '../../../assets/varibles';
 .letter {
   position: absolute;
   right: 0;
@@ -28,7 +26,8 @@ export default {
   height: 100vh;
   text-align: center;
   .item {
-    margin: .1rem 0;
+    margin: .07rem 0;
+    color: $bgColor;
   }
 }
 </style>
