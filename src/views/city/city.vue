@@ -3,7 +3,7 @@
     <!-- 头部 -->
     <city-header></city-header>
     <!-- 输入框 -->
-    <city-input></city-input>
+    <city-input :city="cities"></city-input>
     <!-- 城市列表 -->
     <city-list :letter="letter" :hotCity="hotCities" :city="cities"></city-list>
     <!-- 右侧字母表 -->

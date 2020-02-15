@@ -39,7 +39,7 @@ export default {
     initScroll () {
       this.$nextTick(() => {
         if (!this.$refs.scrollList) return
-        console.log(this.$refs.scrollList)
+        // console.log(this.$refs.scrollList)
         this.scroll = new BScroll(this.$refs.scrollList, { probeType: 3 })
         // this.scroll.on('scroll', (pos) => {
         //   console.log(pos)
