@@ -6,19 +6,22 @@
     <div class="header-input">
       <span class="iconfont icon-49"></span>
       输入城市/景点/游玩主题
-      </div>
-    <router-link to="/city">
-      <div class="header-right">
-        <em>上海</em>
+    </div>
+    <div class="header-right" @click="() => {this.$router.push('/city')}">
+        <em>{{ city }}</em>
         <span class="iconfont icon-ico_arrows_unfold"></span>
-      </div>
-    </router-link>
+    </div>
   </div>
 </template>
 
 <script>
 export default {
-
+  name: 'HomeHeader',
+  computed: {
+    city () {
+      return this.$store.state.city
+    }
+  }
 }
 </script>
 
@@ -38,9 +41,10 @@ export default {
     }
   }
   .header-right {
-    width: 1.24rem;
+    // width: 1.24rem;
     line-height: .86rem;
     text-align: center;
+    padding: 0 .1rem;
     color: #fff;
     span {
       font-size: .24rem;

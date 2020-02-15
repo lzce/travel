@@ -4,13 +4,13 @@
       <!-- 当前城市 -->
       <div class="current-city">
         <div class="cur-title">当前城市</div>
-        <div class="cur-item">上海</div>
+        <div class="cur-item">{{ $store.state.city }}</div>
       </div>
       <!-- 热门城市 -->
       <div class="hot-city">
         <div class="cur-title">热门城市</div>
         <ul class="hot-item">
-          <li v-for="item of hotCity" :key="item.id"><a href="#">{{ item.name }}</a></li>
+          <li v-for="item of hotCity" :key="item.id" @click="changeCity(item.name)"><a href="#">{{ item.name }}</a></li>
         </ul>
       </div>
       <!-- 城市列表 -->
@@ -18,7 +18,7 @@
         <div class="cate-item" v-for="(item, key) of city" :key="key" :ref="key">
           <div class="cur-title">{{ key }}</div>
           <ul class="item-ul">
-            <li v-for="c of item" :key="c.id">{{ c.name }}</li>
+            <li v-for="c of item" :key="c.id" @click="changeCity(c.name)">{{ c.name }}</li>
           </ul>
         </div>
       </div>
@@ -45,6 +45,10 @@ export default {
         //   console.log(pos)
         // })
       })
+    },
+    changeCity (city) {
+      this.$store.commit('changeCity', { city })
+      this.$router.push('/home')
     }
   },
   mounted () {
