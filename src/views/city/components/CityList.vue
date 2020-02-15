@@ -15,7 +15,7 @@
       </div>
       <!-- 城市列表 -->
       <div class="cate-city">
-        <div class="cate-item" v-for="(item, key) of city" :key="key">
+        <div class="cate-item" v-for="(item, key) of city" :key="key" :ref="key">
           <div class="cur-title">{{ key }}</div>
           <ul class="item-ul">
             <li v-for="c of item" :key="c.id">{{ c.name }}</li>
@@ -32,10 +32,30 @@ export default {
   name: 'CityList',
   props: {
     hotCity: Array,
-    city: Object
+    city: Object,
+    letter: String
+  },
+  methods: {
+    initScroll () {
+      this.$nextTick(() => {
+        if (!this.$refs.scrollList) return
+        console.log(this.$refs.scrollList)
+        this.scroll = new BScroll(this.$refs.scrollList, { probeType: 3 })
+        // this.scroll.on('scroll', (pos) => {
+        //   console.log(pos)
+        // })
+      })
+    }
   },
   mounted () {
-    this.scroll = new BScroll(this.$refs.scrollList)
+    this.initScroll()
+  },
+  watch: {
+    letter () {
+      // console.log(this.$refs[this.letter][0])
+      const element = this.$refs[this.letter][0]
+      this.scroll.scrollToElement(element, 500)
+    }
   }
 }
 </script>

@@ -5,9 +5,9 @@
     <!-- 输入框 -->
     <city-input></city-input>
     <!-- 城市列表 -->
-    <city-list :hotCity="hotCities" :city="cities"></city-list>
+    <city-list :letter="letter" :hotCity="hotCities" :city="cities"></city-list>
     <!-- 右侧字母表 -->
-    <city-letter :city="cities"></city-letter>
+    <city-letter @change="handleChangeLetter" :city="cities"></city-letter>
   </div>
 </template>
 
@@ -27,7 +27,8 @@ export default {
   data () {
     return {
       hotCities: [],
-      cities: {}
+      cities: {},
+      letter: ''
     }
   },
   created () {
@@ -42,8 +43,13 @@ export default {
     },
     async getCity () {
       const res = await this.$axios.get('http://localhost:4000/cities')
-      console.log(res)
+      // console.log(res)
       this.cities = res.data
+    },
+    // letter子组件触发事件
+    handleChangeLetter (letter) {
+      // console.log(letter)
+      this.letter = letter
     }
   }
 }
