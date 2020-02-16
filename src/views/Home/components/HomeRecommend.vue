@@ -2,16 +2,16 @@
   <div class="home-recommend">
     <div class="recom-title">热销推荐</div>
     <ul class="recommend">
-      <li v-for="item in recommendList" :key="item.id" class="recom-item border-bottom">
+      <router-link tag="li" v-for="item in recommendList" :key="item.id" class="recom-item border-bottom" :to="`/detail/${item.id}`">
         <div class="recom-left">
           <img :src="item.imgUrl" alt="">
         </div>
         <div class="recom-right">
           <p class="oneline">{{ item.name }}</p>
           <p class="oneline">{{ item.desc }}</p>
-          <a href="#">查看详情</a>
+          <span>查看详情</span>
         </div>
-      </li>
+      </router-link>
     </ul>
   </div>
 </template>
@@ -89,7 +89,7 @@ export default {
           color: #666;
           margin: .2rem 0;
         }
-        a {
+        span {
           color: #FFF;
           background: #FF8C19;
           height: .4rem;

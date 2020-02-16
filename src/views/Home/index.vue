@@ -100,9 +100,6 @@ export default {
     navTwo () {
       return this.navList.slice(10, 20)
     }
-  },
-  activated () {
-    console.log('哈哈')
   }
 
 }
