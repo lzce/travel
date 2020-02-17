@@ -1,10 +1,10 @@
 <template>
   <div class="letter">
     <div
-      :class="['item', index === key ? 'active' : '']"
-      v-for="(item, key) of letters"
+      :class="['item', index === idx ? 'active' : '']"
+      v-for="(item, idx) of letters"
       :key="item"
-      @click="clickLetter(item, key)"
+      @click="clickLetter(item, idx)"
       @touchstart="handleTouchStart"
       @touchmove="handleTouchMove"
       @touchend="handleTouchend"
@@ -19,7 +19,8 @@ export default {
   data () {
     return {
       touchFlag: false,
-      index: 0
+      index: '',
+      letter: ''
     }
   },
   props: {
@@ -53,14 +54,16 @@ export default {
         index = 21
       }
       this.index = index
+      this.letter = index
     },
     handleTouchend () {
       this.touchFlag = false
+      this.index = ''
     }
   },
   watch: {
     index () {
-      this.$emit('change', this.letters[this.index])
+      this.$emit('change', this.letters[this.letter])
     }
   }
 }
