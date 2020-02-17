@@ -26,6 +26,9 @@ export default {
   activated () {
     window.addEventListener('scroll', this.handleScroll)
   },
+  deactivated () {
+    window.removeEventListener('scroll', this.handleScroll)
+  },
   methods: {
     // 监听页面滚动
     handleScroll () {

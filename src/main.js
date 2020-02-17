@@ -14,11 +14,13 @@ import './assets/iconfont.css'
 // 解决移动端1px边框显示问题
 import './assets/border.css'
 
+import animate from 'animate.css'
+
 // 轮播图插件
 import VueAwesomeSwiper from 'vue-awesome-swiper'
 import 'swiper/dist/css/swiper.css'
 Vue.use(VueAwesomeSwiper)
-
+Vue.use(animate)
 // 全局挂载axios
 Vue.prototype.$axios = axios
 

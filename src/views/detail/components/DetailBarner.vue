@@ -13,16 +13,20 @@
         </swiper-slide>
       </swiper>
     </div>
-    <gallary @hiddenGallary='hiddenGallary' :imgList="imgList" :showGallary="this.showGallary"></gallary>
+    <fade>
+      <gallary @hiddenGallary='hiddenGallary' :imgList="imgList" :showGallary="this.showGallary"></gallary>
+    </fade>
   </div>
 </template>
 
 <script>
 import Gallary from '../../../components/Gallary/index'
+import Fade from '../../../components/Fade/index'
 export default {
   name: 'DetailBarner',
   components: {
-    Gallary
+    Gallary,
+    Fade
   },
   data () {
     return {
