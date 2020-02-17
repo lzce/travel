@@ -40,7 +40,6 @@ export default {
   },
   methods: {
     hiddenGallary () {
-      console.log('哈哈')
       this.$emit('hiddenGallary')
     }
   }
